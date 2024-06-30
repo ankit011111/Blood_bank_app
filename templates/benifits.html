@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Benefits{% endblock title %}
+
+{% block body %}
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  .bg-image {
+    background-image: url('{% static "image describin fabec5d8-7153-4340-b7b5-9a0aba5b0430.png" %}');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .animated-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s, transform 2s;
+  }
+  .animated-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<div class="bg-image">
+  <div class="overlay">
+    <div id="benefit1" class="animated-text">
+      1. Save Lives: Your blood can save up to three lives.
+    </div>
+    <div id="benefit2" class="animated-text" style="margin-top: 1rem;">
+      2. Improve Health: Reduces harmful iron stores and maintains cardiovascular health.
+    </div>
+    <div id="benefit3" class="animated-text" style="margin-top: 1rem;">
+      3. Burns Calories: Donating blood burns calories.
+    </div>
+    <div id="benefit4" class="animated-text" style="margin-top: 1rem;">
+      4. Free Health Check-Up: Receive a mini health screening.
+    </div>
+    <div id="benefit5" class="animated-text" style="margin-top: 1rem;">
+      5. Stimulate Blood Cell Production: Boosts new blood cell production.
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const benefits = [
+      document.getElementById('benefit1'),
+      document.getElementById('benefit2'),
+      document.getElementById('benefit3'),
+      document.getElementById('benefit4'),
+      document.getElementById('benefit5')
+    ];
+
+    benefits.forEach((benefit, index) => {
+      setTimeout(() => {
+        benefit.classList.add('visible');
+      }, index * 800);
+    });
+  });
+</script>
+
+{% endblock body %}

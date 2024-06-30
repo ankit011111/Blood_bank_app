@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}aboutus{% endblock title %}
+
+{% block body %}
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  .bg-image {
+    background-image: url('{% static "image describin fabec5d8-7153-4340-b7b5-9a0aba5b0430.png" %}');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .animated-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s, transform 2s;
+  }
+  .animated-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .text-color1 {
+    color: #e63946; /* Red */
+  }
+  .text-color2 {
+    color: #f1faee; /* White */
+  }
+  .text-color3 {
+    color: #a8dadc; /* Light Blue */
+  }
+  .text-color4 {
+    color: #457b9d; /* Dark Blue */
+  }
+  .text-color5 {
+    color: #1d3557; /* Navy Blue */
+  }
+</style>
+
+<div class="bg-image">
+  <div class="overlay">
+    <div id="line1" class="animated-text text-color1">
+      Serving humanity with every drop donated.
+    </div>
+    <div id="line2" class="animated-text text-color2" style="margin-top: 1rem;">
+      Committed to providing safe and essential blood supplies.
+    </div>
+    <div id="line3" class="animated-text text-color3" style="margin-top: 1rem;">
+      Ensuring quality and compassion in every interaction.
+    </div>
+    <div id="line4" class="animated-text text-color4" style="margin-top: 1rem;">
+      Empowering communities through blood donation awareness.
+    </div>
+    <div id="line5" class="animated-text text-color5" style="margin-top: 1rem;">
+      Join us in making a difference, one donation at a time.
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const lines = [
+      document.getElementById('line1'),
+      document.getElementById('line2'),
+      document.getElementById('line3'),
+      document.getElementById('line4'),
+      document.getElementById('line5')
+    ];
+
+    lines.forEach((line, index) => {
+      setTimeout(() => {
+        line.classList.add('visible');
+      }, index * 1000); // Show each line every 2 seconds
+    });
+  });
+</script>
+
+{% endblock body %}

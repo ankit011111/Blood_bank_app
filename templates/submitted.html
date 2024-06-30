@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Form Submitted{% endblock title %}
+
+{% block body %}
+<div class="thank-you-page">
+    <div class="thank-you-message">
+        <h1>Thank You!</h1>
+        <p>Your form has been submitted.</p>
+    </div>
+</div>
+{% endblock body %}
+
+{% block extra_css %}
+<style>
+.thank-you-page {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    height: calc(100vh - 56px); /* Adjusting height to account for navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thank-you-message {
+    text-align: center;
+    background: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.thank-you-message h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+.thank-you-message p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
+    animation: slideInFromRight 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+</style>
+{% endblock extra_css %}
